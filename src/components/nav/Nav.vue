@@ -22,6 +22,8 @@
 <script lang="ts">
 import { Icon, Menu } from "ant-design-vue";
 import { Vue, Component } from "vue-property-decorator";
+// 导入api
+import { getMenu } from "../../api/api";
 
 @Component({
   components: {
@@ -34,6 +36,14 @@ import { Vue, Component } from "vue-property-decorator";
 export default class Nav extends Vue {
   created() {
     console.log("created...");
+    getMenu()
+      .then(res => {
+        console.log(res);
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .catch((err: any): void => {
+        console.log(err);
+      });
   }
 }
 </script>
