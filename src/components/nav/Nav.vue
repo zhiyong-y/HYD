@@ -13,7 +13,7 @@
       </a-menu-item>
       <a-menu-item key="3">
         <a-icon type="upload" />
-        <span>{{ name }}</span>
+        <span>Contact</span>
       </a-menu-item>
     </a-menu>
   </div>
@@ -32,6 +32,8 @@ import { Vue, Component } from "vue-property-decorator";
   }
 })
 export default class Nav extends Vue {
-  name = "123";
+  created() {
+    console.log("created...");
+  }
 }
 </script>

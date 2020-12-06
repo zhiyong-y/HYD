@@ -10,7 +10,9 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component({})
 export default class Nav extends Vue {
-  @Prop()
-  collapsed!: boolean;
+  // @Prop(Boolean)
+  // private collapsed!: string | boolean;
+  @Prop({ type: Boolean, default: false })
+  private collapsed!: boolean;
 }
 </script>
