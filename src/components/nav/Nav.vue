@@ -35,7 +35,6 @@ import { getMenu } from "../../api/api";
 })
 export default class Nav extends Vue {
   created() {
-    console.log("created...");
     getMenu()
       .then(res => {
         console.log(res);
