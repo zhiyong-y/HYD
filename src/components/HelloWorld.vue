@@ -112,10 +112,21 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import { getUsers } from "@/api/api";
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+  created() {
+    getUsers()
+      .then(res => {
+        console.log(res);
+      })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .catch((err: any): void => {
+        console.log(err);
+      });
+  }
 }
 </script>
 
