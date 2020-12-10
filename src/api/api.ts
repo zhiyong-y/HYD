@@ -4,9 +4,8 @@ import axios from "axios";
 const base = "/api";
 
 export const getUsers = () => {
-  return axios.get(`${base}/getUsers`);
+  return axios.get(`${base}/getUsers/lists`);
 };
-
 export const getMenu = () => {
   return axios.get(`${base}/getMenus`);
 };
