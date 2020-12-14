@@ -3,21 +3,12 @@ import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
 
-// 引入ant-design-vue,全局注册
+/**
+ * 引入ant-design-vue,全局注册
+ */
 import { Button } from "ant-design-vue";
 Vue.component(Button.name, Button);
 // Vue.use(Button);
-
-// 引入mock模块 api
-import * as api from "@/utils/api";
-Vue.prototype.$api = api;
-
-// 引入 axios 和 vue-axios 模块
-import axios from "axios";
-import VueAxios from "vue-axios";
-axios.defaults.timeout = 10000;
-axios.defaults.withCredentials = true;
-Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
