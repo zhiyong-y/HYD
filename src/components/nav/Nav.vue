@@ -1,20 +1,37 @@
 <template>
   <div>
-    <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-      <a-menu-item key="1" class="right-item">
-        <a-icon type="user" />
-        <span><router-link to="/a" class="link">Home</router-link></span>
-      </a-menu-item>
-      <a-menu-item key="2" class="right-item">
-        <a-icon type="video-camera" />
-        <span>
-          <router-link to="/about" class="link">About</router-link>
-        </span>
-      </a-menu-item>
-      <a-menu-item key="3">
-        <a-icon type="upload" />
-        <span>Contact</span>
-      </a-menu-item>
+    <a-menu theme="dark" mode="inline" :default-selected-keys="['INDEX']">
+      <template v-for="item in menus">
+        <a-menu-item
+          class="right-item"
+          v-if="item.subMenu.length === 0"
+          :key="item.rightName"
+        >
+          <a-icon :type="item.rightIcon" />
+          <span>
+            <router-link :to="item.rightUrl" class="link">
+              {{ item.rightName }}
+            </router-link>
+          </span>
+        </a-menu-item>
+        <!-- 如果存在子菜单 -->
+        <a-sub-menu v-else :key="item.rightName">
+          <span slot="title">
+            <a-icon :type="item.rightIcon" />
+            <span>{{ item.rightName }}</span>
+          </span>
+          <template v-for="subItem in item.subMenu">
+            <a-menu-item class="right-item" :key="subItem.rightName">
+              <a-icon :type="subItem.rightIcon.trim()" />
+              <span>
+                <router-link :to="subItem.rightUrl" class="link">
+                  {{ subItem.rightName }}
+                </router-link>
+              </span>
+            </a-menu-item>
+          </template>
+        </a-sub-menu>
+      </template>
     </a-menu>
   </div>
 </template>
@@ -34,14 +51,17 @@ import { getMenu } from "../../api/api";
   }
 })
 export default class Nav extends Vue {
+  menus: object = [];
   created() {
     getMenu()
       .then(res => {
-        console.log(res);
+        // 初次使用ts，暂时先用这个蹩脚且不合适的方式屏蔽掉警告
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        this.menus = (res as any).result.list;
+        console.log(this.menus);
       })
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .catch((err: any): void => {
-        console.log(err);
+      .catch(error => {
+        console.log(error);
       });
   }
 }

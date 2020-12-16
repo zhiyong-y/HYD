@@ -122,8 +122,7 @@ export default class HelloWorld extends Vue {
       .then(res => {
         console.log(res);
       })
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .catch((err: any): void => {
+      .catch((err): void => {
         console.log(err);
       });
   }
