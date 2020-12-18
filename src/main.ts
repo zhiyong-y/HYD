@@ -4,6 +4,10 @@ import router from "@/router";
 import store from "@/store";
 
 /**
+ * 全局引入iconfont
+ */
+import "@/assets/iconfont/iconfont.css";
+/**
  * 引入ant-design-vue,全局注册
  */
 import { Button } from "ant-design-vue";

@@ -15,14 +15,21 @@
           </span>
         </a-menu-item>
         <!-- 如果存在子菜单 -->
-        <a-sub-menu v-else :key="item.rightName">
+        <a-sub-menu v-else :key="item.rightName" class="right-item">
           <span slot="title">
             <a-icon :type="item.rightIcon" />
-            <span>{{ item.rightName }}</span>
+            <span>
+              <router-link :to="item.rightUrl" class="link">
+                {{ item.rightName }}
+              </router-link>
+            </span>
           </span>
           <template v-for="subItem in item.subMenu">
             <a-menu-item class="right-item" :key="subItem.rightName">
-              <a-icon :type="subItem.rightIcon.trim()" />
+              <a-icon
+                v-if="subItem.rightIcon != null"
+                :type="subItem.rightIcon.trim()"
+              />
               <span>
                 <router-link :to="subItem.rightUrl" class="link">
                   {{ subItem.rightName }}
@@ -53,6 +60,7 @@ import { getMenu } from "../../api/api";
 export default class Nav extends Vue {
   menus: object = [];
   created() {
+    // 需要改造，通过vuex获取
     getMenu()
       .then(res => {
         // 初次使用ts，暂时先用这个蹩脚且不合适的方式屏蔽掉警告

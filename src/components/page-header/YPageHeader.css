@@ -1,0 +1,12 @@
+.y-page-header {
+  width: 100vw;
+  height: 60px;
+  line-height: 60px;
+  text-indent: 10px;
+  font-size: 24px;
+  display: flex;
+}
+.y-page-header__content {
+  font-size: 12px;
+  line-height: 72px;
+}

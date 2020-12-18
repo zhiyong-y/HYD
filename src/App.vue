@@ -10,7 +10,7 @@
           <a-icon class="trigger" :type="menuType" @click="isCollapsed()" />
         </a-layout-header>
         <a-layout-content class="layout-content">
-          <a-breadcrumb></a-breadcrumb>
+          <!-- <a-breadcrumb></a-breadcrumb> -->
           <router-view></router-view>
         </a-layout-content>
       </a-layout>
@@ -36,8 +36,8 @@ import Logo from "./components/logo/Logo.vue";
     ALayoutFooter: Layout.Footer,
     ANav: Nav,
     ABreadcrumb: Breadcrumb,
-    ALogo: Logo
-  }
+    ALogo: Logo,
+  },
 })
 export default class Index extends Vue {
   private collapsed = false;
@@ -93,6 +93,8 @@ export default class Index extends Vue {
     padding: 24px;
     background: #fff;
     min-height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 .right-item {
