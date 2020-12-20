@@ -34,7 +34,12 @@ const routes: Array<RouteConfig> = [
   {
     path: "/button",
     name: "Button",
-    component: () => import("@/components/button/Button.vue")
+    component: () => import("@/views/ButtonIndex.vue")
+  },
+  {
+    path: "/badge",
+    name: "Badge",
+    component: () => import("@/views/BadgeIndex.vue")
   }
 ];
 

@@ -217,6 +217,10 @@
   padding: 13px;
 }
 
+.y-button--small.no-label {
+  padding: 9px;
+}
+
 /* ghost */
 /* ghost css */
 .is-ghost {
@@ -230,7 +234,7 @@
 }
 .y-button-ghost--info {
   color: #85c2ff;
-  border: 1px solid #85c2ff;
+  border: 1px solid #c1e2ff;
 }
 
 .y-button-ghost--info:hover {
@@ -240,7 +244,7 @@
 
 .y-button-ghost--success {
   color: #73e3b3;
-  border: 1px solid #73e3b3;
+  border: 1px solid #b8f1d5;
 }
 
 .y-button-ghost--success:hover {
@@ -250,7 +254,7 @@
 
 .y-button-ghost--warning {
   color: #eec17c;
-  border: 1px solid #eec17c;
+  border: 1px solid #f2d09d;
 }
 
 .y-button-ghost--warning:hover {
@@ -260,7 +264,7 @@
 
 .y-button-ghost--danger {
   color: #f8d2cf;
-  border: 1px solid #f8d2cf;
+  border: 1px solid #fbd2cf;
 }
 
 .y-button-ghost--danger:hover {

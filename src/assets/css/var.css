@@ -1,0 +1,45 @@
+* {
+  --primary-base: #334466;
+  --primary-sub: #6f80a3;
+  --primary-dark-border: #8c9bb8;
+  --primary-tint: #b8c2d6;
+  --primary-border: #e1e6f0;
+  --primary-background: #f5f7fa;
+
+  --success-base: #15d186;
+  --success-sub: #73e3b3;
+  --success-border: #b8f1d5;
+  --success-background: #f3fcf7;
+
+  --warning-base: #e6a23c;
+  --warning-sub: #eec17c;
+  --warning-border: #f2d09d;
+  --warning-background: #faecd8;
+
+  --info-base: #3392ff;
+  --info-sub: #85c2ff;
+  --info-border: #c1e2ff;
+  --info-background: #f5faff;
+
+  --danger-base: #f46262;
+  --danger-sub: #f8d2cf;
+  --danger-border: #fbd2cf;
+  --danger-background: #fef8f7;
+
+  --primary-shadow-light: rgba(92, 111, 139, .33);
+  --primary-shadow-dark: rgba(92, 111, 139, .67);
+  --primary-shadow-tint: rgba(92, 111, 139, .2);
+
+  --success-shadow-light: rgba(21, 209, 134, .33);
+  --success-shadow-dark: rgba(21, 209, 134, .67);
+
+  --danger-shadow-light: rgba(244, 98, 98, .33);
+  --danger-shadow-dark: rgba(244, 98, 98, .67);
+
+  --warning-shadow-light: rgba(255, 236, 186, .33);
+  --warning-shadow-dark: rgba(255, 236, 186, .67);
+
+  --info-shadow-light: rgba(51, 146, 255, .33);
+  --info-shadow-dark: rgba(5, 146, 255, .67);
+
+}

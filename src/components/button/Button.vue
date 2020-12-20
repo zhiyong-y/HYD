@@ -12,9 +12,9 @@
         'is-circle': circle,
         'is-round': round,
         'is-disabled': disabled,
-        'no-label': $slots.default === undefined,
+        'no-label': $slots.default === undefined
       },
-      type && ghost ? 'y-button-ghost--' + type : '',
+      type && ghost ? 'y-button-ghost--' + type : ''
     ]"
   >
     <i v-if="icon" :class="icon"></i>
