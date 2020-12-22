@@ -21,7 +21,6 @@ export default class Badge extends Vue {
   @Prop({ type: String, default: "default" }) type?: string;
 
   get valueLength() {
-    console.log(this.value);
     if (typeof this.value === "string") {
       if (this.value !== "") {
         return this.value.length > 1 ? "y-badge-long" : "y-badge-normal";

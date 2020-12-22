@@ -36,7 +36,7 @@ import Logo from "./components/logo/Logo.vue";
     ALayoutFooter: Layout.Footer,
     ANav: Nav,
     ABreadcrumb: Breadcrumb,
-    ALogo: Logo,
+    ALogo: Logo
   },
 })
 export default class Index extends Vue {

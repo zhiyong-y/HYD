@@ -40,6 +40,11 @@ const routes: Array<RouteConfig> = [
     path: "/badge",
     name: "Badge",
     component: () => import("@/views/BadgeIndex.vue")
+  },
+  {
+    path: "/checkbox",
+    name: "Checkbox",
+    component: () => import("@/views/CheckBoxIndex.vue")
   }
 ];
 

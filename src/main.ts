@@ -6,6 +6,7 @@ import store from "@/store";
 /**
  * 全局引入iconfont
  */
+import "@/assets/css/var.css";
 import "@/assets/iconfont/iconfont.css";
 /**
  * 引入ant-design-vue,全局注册
