@@ -45,6 +45,11 @@ const routes: Array<RouteConfig> = [
     path: "/checkbox",
     name: "Checkbox",
     component: () => import("@/views/CheckBoxIndex.vue")
+  },
+  {
+    path: "/getUserList",
+    name: "UserList",
+    component: () => import("@/views/user/userTable.vue")
   }
 ];
 
