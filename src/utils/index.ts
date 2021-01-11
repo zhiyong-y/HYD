@@ -6,17 +6,31 @@
 import Qs from "qs";
 import axios from "axios";
 import store from "@/store/index";
-axios.defaults.timeout = 10000;
-axios.defaults.withCredentials = true;
+
+const requestTime = 10; //请求响应时间，默认为10s
+Object.assign(axios.defaults, {
+  timeout: 1000 * requestTime,
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json"
+  }
+});
 
 // 请求拦截
 axios.interceptors.request.use(
   config => {
-    // 获取到请求参数
-    console.log(config);
+    // 获取到请求参数，按需设置
+    // const token = sessionStorage.getItem("token");
+    // if (token) {
+    //   Object.assign(config.headers, {
+    //     Token: token
+    //   });
+    // } else {
+    //   sessionStorage.removeItem("token");
+    //   window.location.href = "/login";
+    // }
     // 设置loading
     store.commit("loading");
-    console.log(store);
     return config;
   },
   error => {
@@ -29,11 +43,17 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => {
     store.commit("loading");
+    // if (response.data.code === 502) {
+    //   //登录失效
+    //   sessionStorage.removeItem("token");
+    //   window.location.href = "/login";
+    //   return;
+    // }
     return response;
   },
   error => {
     store.commit("loading");
-    return error;
+    return Promise.reject(error);
   }
 );
 export default {

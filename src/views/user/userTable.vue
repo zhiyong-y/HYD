@@ -27,32 +27,32 @@ export default class NAME extends Vue {
       title: "姓名",
       dataIndex: "name",
       key: "name",
-      scopedSlots: { customRender: "name" },
+      scopedSlots: { customRender: "name" }
     },
     {
       title: "年龄",
       dataIndex: "age",
       key: "age",
-      scopedSlots: { customRender: "age" },
+      scopedSlots: { customRender: "age" }
     },
     {
       title: "住址",
       dataIndex: "address",
       key: "address",
-      scopedSlots: { customRender: "address" },
+      scopedSlots: { customRender: "address" }
     },
     {
       title: "IP",
       dataIndex: "ip",
       key: "ip",
-      scopedSlots: { customRender: "ip" },
+      scopedSlots: { customRender: "ip" }
     },
     {
       title: "最后上线时间",
       dataIndex: "date",
       key: "date",
-      scopedSlots: { customRender: "date" },
-    },
+      scopedSlots: { customRender: "date" }
+    }
   ];
   private userList = [];
   selectedRowKeys = [];
@@ -62,7 +62,7 @@ export default class NAME extends Vue {
         console.log(res);
         this.userList = (res as any).tableData;
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
   }
