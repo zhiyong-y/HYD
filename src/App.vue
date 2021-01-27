@@ -58,7 +58,7 @@ export default class Index extends Vue {
   }
   // mounted
   mounted() {
-    console.log("生命周期钩子");
+    // console.log("生命周期钩子");
   }
 }
 </script>

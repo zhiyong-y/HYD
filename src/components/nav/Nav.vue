@@ -66,7 +66,7 @@ export default class Nav extends Vue {
         // 初次使用ts，暂时先用这个蹩脚且不合适的方式屏蔽掉警告
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         this.menus = (res as any).result.list;
-        console.log(this.menus);
+        // console.log(this.menus);
       })
       .catch(error => {
         console.log(error);

@@ -6,11 +6,18 @@ import Components from "@/views/Components.vue";
 
 Vue.use(VueRouter);
 
+const checkbox = () => import("@/views/CheckBoxIndex.vue");
+
 const routes: Array<RouteConfig> = [
   {
     path: "/",
+    redirect: "/home"
+  },
+  {
+    path: "/home",
     name: "Home",
-    component: Components
+    component: Components,
+    alias: "/alias"
   },
   {
     path: "/index",
@@ -44,12 +51,45 @@ const routes: Array<RouteConfig> = [
   {
     path: "/checkbox",
     name: "Checkbox",
-    component: () => import("@/views/CheckBoxIndex.vue")
+    component: checkbox
   },
   {
     path: "/getUserList",
     name: "UserList",
-    component: () => import("@/views/user/userTable.vue")
+    component: () => import("@/views/user/userTable.vue"),
+    meta: {
+      requireLogin: false
+    },
+    beforeEnter: (to, from, next) => {
+      console.log("路由内守卫，路由独享");
+      console.log(to);
+      console.log(from);
+      next(); // 必须放行
+    }
+  },
+  {
+    path: "/getUserDetail",
+    name: "UserDetail",
+    props: true,
+    component: () => import("@/views/user/detail.vue")
+  },
+  {
+    path: "/menusManage",
+    name: "MenusManage",
+    alias: "/aliasName",
+    component: () => import("@/views/manage/menus.vue"),
+    children: [
+      {
+        // 空路由表示默认页面
+        path: "",
+        name: "TAB1",
+        components: {
+          default: () => import("@/views/manage/tab1.vue"),
+          tab1: () => import("@/views/manage/tab1.vue"),
+          tab2: () => import("@/views/manage/tab2.vue")
+        }
+      }
+    ]
   }
 ];
 
@@ -57,6 +97,42 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  // 进行逻辑判断，demo
+  // const isLogin = localStorage.getItem("isLogin");
+  // if (to.meta.requireLogin) {
+  //   if (isLogin) {
+  //     next();
+  //   } else {
+  //     next("/login");
+  //   }
+  // } else {
+  //   next();
+  // }
+  // if (to.name === "login") {
+  //   if (isLogin) {
+  //     router.push({ name: "home" });
+  //   } else {
+  //     next();
+  //   }
+  // }
+  console.log("全局前置守卫", 111);
+  next();
+});
+
+router.beforeResolve((to, from, next) => {
+  console.log("全局解析守卫", 222);
+  console.log(to);
+  console.log(from);
+  next();
+});
+
+router.afterEach((to, from) => {
+  console.log("全局后置守卫", 333);
+  console.log(to);
+  console.log(from);
 });
 
 export default router;
